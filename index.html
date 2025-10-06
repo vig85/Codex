@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sprout Acres - Cozy Farm Game</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero__content">
+        <h1>Sprout Acres</h1>
+        <p>Plant, grow, and harvest to build your cozy countryside haven.</p>
+        <div class="hero__stats">
+          <div class="stat"><span class="label">Coins</span><span id="coins">0</span></div>
+          <div class="stat"><span class="label">Seeds</span><span id="seeds">0</span></div>
+          <div class="stat"><span class="label">Day</span><span id="day">1</span></div>
+        </div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel panel--left">
+        <h2>Seed Catalog</h2>
+        <p class="panel__subtitle">Choose a crop to plant. Each one grows at its own pace and earns different rewards.</p>
+        <div id="cropButtons" class="crop-buttons"></div>
+
+        <h3>Farm Log</h3>
+        <ul id="log" class="log" aria-live="polite"></ul>
+      </section>
+
+      <section class="panel panel--center">
+        <h2>Your Fields</h2>
+        <div id="field" class="field" role="grid" aria-label="Farm plots"></div>
+      </section>
+
+      <section class="panel panel--right">
+        <h2>Daily Goals</h2>
+        <div class="goals">
+          <p>Complete these cozy challenges to keep the farm thriving.</p>
+          <ul>
+            <li>Harvest 5 crops in a day</li>
+            <li>Maintain a balance of 150 coins</li>
+            <li>Grow three different crop types</li>
+          </ul>
+        </div>
+
+        <div class="tips">
+          <h3>Farmer Tips</h3>
+          <p>Time keeps flowing, even when you are admiring the scenery. Check back often to gather ready crops!</p>
+        </div>
+      </section>
+    </main>
+
+    <div class="modal" id="helpModal" role="dialog" aria-modal="true" aria-labelledby="helpTitle" hidden>
+      <div class="modal__content">
+        <h2 id="helpTitle">How to Play</h2>
+        <ol>
+          <li>Select a crop from the catalog on the left.</li>
+          <li>Click any empty plot to plant the crop.</li>
+          <li>Wait for the crop to mature. Hover to see its progress.</li>
+          <li>Harvest ready crops to earn coins and discover new seeds.</li>
+        </ol>
+        <button id="closeHelp" class="button">Got it!</button>
+      </div>
+    </div>
+
+    <button id="helpButton" class="floating-button" aria-haspopup="dialog" aria-controls="helpModal">?</button>
+
+    <template id="plotTemplate">
+      <button class="plot" type="button" aria-live="polite">
+        <span class="plot__emoji" aria-hidden="true">🪨</span>
+        <span class="plot__status">Empty plot</span>
+        <span class="plot__progress"></span>
+      </button>
+    </template>
+
+    <script src="script.js" type="module"></script>
+  </body>
+</html>
